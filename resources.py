@@ -82,4 +82,6 @@ class EntryManager:
 # нужно пройти по ссылке, там запущен Front
 r'https://wexler.io/course/coding/todo-frontend/'
 
+
 # залито на гит
+# делаю изменения для создания новой ветки
