@@ -1,7 +1,8 @@
 from flask import Flask, request
 from resources import EntryManager, Entry
+import os
 
-FOLDER = "C:\\MyPythonProjects\\pod_git\\obucheniye\\BkP\\BkP_list_work\\list-backend"
+FOLDER = os.environ.get('FOLDER', '/app/data')
 
 app = Flask(__name__)
 

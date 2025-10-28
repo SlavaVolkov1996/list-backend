@@ -1,0 +1,32 @@
+{
+    "title": "Products",
+    "entries": [
+        {
+            "title": "Молочные",
+            "entries": [
+                {
+                    "title": "Йогурт",
+                    "entries": [
+                        {
+                            "title": "Малиновый",
+                            "entries": []
+                        }
+                    ]
+                },
+                {
+                    "title": "Сыр",
+                    "entries": []
+                }
+            ]
+        },
+        {
+            "title": "Мясное",
+            "entries": [
+                {
+                    "title": "Колбасы",
+                    "entries": []
+                }
+            ]
+        }
+    ]
+}

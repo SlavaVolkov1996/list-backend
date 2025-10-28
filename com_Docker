@@ -1,0 +1,19 @@
+# запуск докера
+docker ps
+
+# поднять docker_compose, построить имидж, работа в фоновом режиме
+docker-compose up --build -d
+
+# проверка докера
+docker ps
+
+# смотрим логи контейнера
+docker logs eaa6d28d3d00 -f
+"eaa6d28d3d00"-может меняться
+
+
+здесь находится front end
+#'https://github.com/Luckykarter/todo-frontend/blob/test/README.md'
+
+
+
