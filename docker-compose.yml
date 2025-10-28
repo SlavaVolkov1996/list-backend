@@ -1,0 +1,14 @@
+services:
+  list-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: list-backend
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - FOLDER=/app/data
+      - PYTHONPATH=/app
