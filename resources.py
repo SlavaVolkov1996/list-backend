@@ -71,8 +71,8 @@ class EntryManager:
     def load(self):
         for entry in os.listdir(self.data_path):
             if entry.endswith(".json"):
-                new_enty = Entry.load(os.path.join(self.data_path, entry))
-                self.entries.append(new_enty)
+                new_entry = Entry.load(os.path.join(self.data_path, entry))
+                self.entries.append(new_entry)
 
     # добавляет новую запись, принимая только её название
     def add_entry(self, title: str):
@@ -80,8 +80,12 @@ class EntryManager:
 
 # приложение готово
 # нужно пройти по ссылке, там запущен Front
-r'https://wexler.io/course/coding/todo-frontend/'
+# https://wexler.io/course/coding/todo-frontend/
 
 
 # залито на гит
 # делаю изменения для создания новой ветки
+
+
+
+
