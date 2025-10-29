@@ -4,7 +4,7 @@ from typing import List
 
 
 class Entry:
-    def __init__(self, title, entries=None, parent=None) -> None:
+    def __init__(self, title, entries=None, parent=None):
         if entries is None:
             entries = []
         self.title = title  # Наименование
@@ -35,19 +35,17 @@ class Entry:
 
     # превращаем данные(dict) в json
     def json(self):
-        res = {
+        return {
             "title": self.title,
             "entries": [entry.json() for entry in self.entries]
         }
-        return res
 
     # сохранения списка дел в json
     def save(self, path):
-        dict1 = self.json()
         new_file = self.title + ".json"
         full_path = os.path.join(path, new_file)
         with open(full_path, "w", encoding='utf-8') as outfile:
-            json.dump(dict1, outfile, indent=4, ensure_ascii=False)
+            json.dump(self.json(), outfile, indent=4, ensure_ascii=False)
             print(f'Файл по названием {new_file} создан')
 
     # берем данные из json и сохраняем новый объект класса
@@ -64,15 +62,19 @@ class EntryManager:
 
     # сохранение записей
     def save(self):
+        os.makedirs(self.data_path, exist_ok=True)
         for entry in self.entries:
             entry.save(self.data_path)
 
     # Загружаем записи
     def load(self):
-        for entry in os.listdir(self.data_path):
-            if entry.endswith(".json"):
-                new_entry = Entry.load(os.path.join(self.data_path, entry))
-                self.entries.append(new_entry)
+        if not os.path.exists(self.data_path):
+            return
+        for filename in os.listdir(self.data_path):
+            if filename.endswith(".json"):
+                full_path = os.path.join(self.data_path, filename)
+                entry = Entry.load(full_path)
+                self.entries.append(entry)
 
     # добавляет новую запись, принимая только её название
     def add_entry(self, title: str):
@@ -85,7 +87,3 @@ class EntryManager:
 
 # залито на гит
 # делаю изменения для создания новой ветки
-
-
-
-
